@@ -1,0 +1,68 @@
+@if (sidebarService.mobileOpened()) {
+<div class="overlay" (click)="sidebarService.closeMobile()">
+</div>
+}
+
+<aside class="sidebar" [class.sidebar-collapsed]="sidebarService.collapsed() && !sidebarService.isMobile()"
+  [class.sidebar-mobile-open]="sidebarService.mobileOpened()">
+
+  <div class="sidebar-header">
+
+    <div class="brand">
+
+      <mat-icon>
+        dashboard
+      </mat-icon>
+
+      @if (!sidebarService.collapsed()) {
+      <span>E-Tools</span>
+      }
+
+    </div>
+
+    @if (!sidebarService.isMobile()) {
+    <button mat-icon-button class="collapse-button" (click)="sidebarService.toggleCollapsed()">
+
+      <mat-icon>
+        @if (sidebarService.collapsed()) {
+        chevron_right
+        } @else {
+        chevron_left
+        }
+      </mat-icon>
+
+    </button>
+    }
+
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <button class="nav-item">
+      <mat-icon class="money-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="money_bag"></mat-icon>
+
+      @if (
+      !sidebarService.collapsed() ||
+      sidebarService.isMobile()
+      ) {
+      <span>Distribuidor ingresos</span>
+      }
+    </button>
+
+  </nav>
+
+  <div class="sidebar-footer">
+
+    <!--
+    <button class="nav-item">
+      <mat-icon>person</mat-icon>
+
+      @if (!sidebarService.collapsed()) {
+      <span>Perfil</span>
+      }
+    </button>
+    -->
+
+  </div>
+
+</aside>
