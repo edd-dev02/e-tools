@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './salary-distributor-page.component.html',
   styleUrl: './salary-distributor-page.component.css',
 })
-export class SalaryDistributorPage {
+export default class SalaryDistributorPage {
 
 }
