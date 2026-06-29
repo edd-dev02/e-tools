@@ -4,7 +4,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@shared/*": ["./src/app/shared/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@routes/": ["./src/app/app.routes.ts"]
     },
     "strict": true,
     "noImplicitOverride": true,
