@@ -1,4 +1,4 @@
-export interface MenuRoute {
+export interface MenuItem {
     path: string;
     title: string;
     fullPath: string;

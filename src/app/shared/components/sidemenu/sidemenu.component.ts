@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   HostListener,
@@ -8,23 +9,37 @@ import {
 
 import { MatIconModule } from '@angular/material/icon';
 import { SidebarService } from '../../services/sidebar.service';
+import { RouterModule } from '@angular/router';
+import { routes } from '@routes/';
 
 @Component({
   selector: 'sidemenu',
-  imports: [MatIconModule],
+  imports: [CommonModule, MatIconModule, RouterModule],
   templateUrl: './sidemenu.component.html',
   styleUrl: './sidemenu.component.css'
 })
 export class SidemenuComponent implements OnInit {
 
-  sidebarService = inject(SidebarService);
+  public sidebarService = inject(SidebarService);
+
+  public menuItems = routes
+    .flatMap(route =>
+      (route.children ?? []).map(child => ({
+        ...child,
+        fullPath: `${route.path}/${child.path}`
+      }))
+    )
+    .filter(route => route.path)
+    .filter(route => !route.path?.includes(':'))
+    .filter(route => !route.path?.includes('*'));
 
   ngOnInit() {
     this.onResize();
+    console.log(this.menuItems);
   }
 
   @HostListener('window:resize')
-  onResize() {
+  public onResize(): void {
     const mobile = window.innerWidth <= 768;
 
     this.sidebarService.isMobile.set(mobile);

@@ -38,6 +38,28 @@
 
   <nav class="sidebar-nav">
 
+    <!-- Rutas dinámicas -->
+    @for(item of menuItems; track item.path) {
+
+    <button 
+      class="nav-item" 
+      [routerLink]="item.fullPath"
+      routerLinkActive="active"
+    >
+      
+      <mat-icon [class]="item!.data!['classIcon']" aria-hidden="false" [aria-label]="item!.data!['ariaLabelIcon']"
+        [fontIcon]="item!.data!['icon']"></mat-icon>
+
+      @if (
+      !sidebarService.collapsed() ||
+      sidebarService.isMobile()
+      ) {
+      <span> {{ item.title }} </span>
+      }
+    </button>
+
+    }
+    <!--
     <button class="nav-item">
       <mat-icon class="money-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="money_bag"></mat-icon>
 
@@ -48,6 +70,7 @@
       <span>Distribuidor ingresos</span>
       }
     </button>
+    -->
 
   </nav>
 

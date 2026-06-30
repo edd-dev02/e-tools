@@ -81,6 +81,11 @@
   background: var(--mat-sys-primary-container);
 }
 
+.active {
+  background-color: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+}
+
 .overlay {
   display: none;
 }
