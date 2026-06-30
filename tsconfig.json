@@ -5,7 +5,8 @@
   "compilerOptions": {
     "paths": {
       "@shared/*": ["./src/app/shared/*"],
-      "@routes/": ["./src/app/app.routes.ts"]
+      "@routes/": ["./src/app/app.routes.ts"],
+      "@interfaces/*": ["./src/app/interfaces/*"],
     },
     "strict": true,
     "noImplicitOverride": true,
