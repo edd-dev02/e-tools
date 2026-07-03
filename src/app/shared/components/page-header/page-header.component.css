@@ -1,0 +1,35 @@
+@media (max-width: 480px) {
+    .header-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: calc(infinity * 1px);
+    background-color: rgb(85 255 105 / 20%);
+}
+
+.header-info {
+    text-align: center;
+}
+
+@media (min-width: 480px) {
+    .header-info {
+        text-align: left;
+    }
+}
+
+.money-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    color: #4caf50;
+}

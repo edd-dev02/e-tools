@@ -4,7 +4,6 @@ import {
   HostListener,
   inject,
   OnInit,
-  signal
 } from '@angular/core';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -35,7 +34,6 @@ export class SidemenuComponent implements OnInit {
 
   ngOnInit() {
     this.onResize();
-    console.log(this.menuItems);
   }
 
   @HostListener('window:resize')

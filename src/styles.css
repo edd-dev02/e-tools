@@ -1,2 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/*
+Nota: Recuerda añadir el normalize.css
+*/
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Iconos */
+
+.money-icon {
+   color: #4caf50;
+}
