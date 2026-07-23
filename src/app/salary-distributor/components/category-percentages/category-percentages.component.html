@@ -1,0 +1,122 @@
+<mat-card appearance="outlined" class="card-section">
+    <mat-card-header class="card-header flex justify-between items-center mb-2">
+
+        <mat-card-title class="font-semibold"> 1. Define los porcentajes</mat-card-title>
+
+        <div class="flex items-center gap-2">
+
+            <button class="resetFormBtn" matIconButton aria-label="Example icon button with a vertical three dot icon"
+                matTooltip="Reiniciar porcentajes del formulario"
+                (click)="resetForm()"
+            >
+                <mat-icon svgIcon="restart"></mat-icon>
+            </button>
+
+            <span class="percentage  p-2 rounded-md text-base text-center" [ngClass]=" {
+                'bg-blue-100 text-blue-600': isTotalValid(),
+                'bg-yellow-100 text-yellow-600': totalPercentages() < 100,
+                'bg-red-100 text-red-600': invalidPercentage(),
+            }">
+                Total: {{ totalPercentages() }}%
+            </span>
+
+        </div>
+
+
+    </mat-card-header>
+
+    <form class="px-4 py-4" [formGroup]="percentagesForm" autocomplete="off">
+
+        @for (input of formInputs; track input.inputName) {
+
+        <div class="form-section flex flex-col justify-between gap-2 md:flex-row md:items-center md:gap-0 my-5">
+
+            <!-- Icono y textos -->
+            <div class="category-info flex flex-col md:flex-row items-center gap-1 md:gap-2 lg:gap-3">
+
+                <div class="icon-container p-3.5 rounded-full" [class]="input.iconContainer">
+                    <mat-icon [svgIcon]="input.icon" [class]="input.iconClass" aria-hidden="false"
+                        aria-label="Example thumbs up SVG icon"></mat-icon>
+                </div>
+
+                <div class="section-info-container text-center md:text-left">
+                    <mat-label class="text-xl font-semibold"> {{ input.inputLabel }} </mat-label>
+                    <p class="text-base text-gray-500"> {{ input.inputDescription }} </p>
+                </div>
+
+
+            </div>
+
+            <div class="flex gap-1 items-center justify-center">
+                <div class="input-container w-fit self-center md:self-auto">
+
+                    <button type="button" class="action-btn action-btn--remove"
+                        (click)="decreasePercentage( input.inputName)">
+
+                        <mat-icon>remove</mat-icon>
+
+                    </button>
+
+                    <input [formControlName]="input.inputName" class="form-input" type="number">
+
+                    <button type="button" class="action-btn action-btn--add"
+                        (click)="increasePercentage(input.inputName)" [disabled]="isTotalValid()">
+
+                        <mat-icon>add</mat-icon>
+
+                    </button>
+
+                </div>
+
+                <mat-icon svgIcon="percent" class="percent-icon" aria-hidden="false"
+                    aria-label="Example thumbs up SVG icon"></mat-icon>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        }
+
+        
+
+        <section class="alert-section text-base">
+
+            @switch (percentageStatus()) {
+
+            @case('missing') {
+
+            <span class="alert bg-yellow-100 text-yellow-600">
+                <mat-icon svgIcon="warning"></mat-icon>
+                ¡Atención! Porcentaje faltante de asignar: {{ remaining() }}%
+            </span>
+            }
+
+            @case('error') {
+
+            <span class="alert bg-red-100 text-red-600">
+                <mat-icon svgIcon="error"></mat-icon>
+                ¡Error! Las sumas de los porcentajes excede el 100%
+            </span>
+            }
+
+            @case('valid') {
+            <span class="alert bg-blue-100 text-blue-600">
+                <mat-icon svgIcon="check"></mat-icon>
+                ¡Perfecto! La suma de los porcentajes es equilibrada
+            </span>
+            }
+
+            @default {
+
+            <span class="alert bg-red-100 text-red-600">
+                <mat-icon svgIcon="error"></mat-icon>
+                ¡Error! Las cantidades de los porcentajes inválidas
+            </span>
+            }
+
+            }
+        </section>
+
+    </form>
+
+</mat-card>
