@@ -1,0 +1,1 @@
+export type PercentageStatus = 'valid' | 'missing' | 'error';
