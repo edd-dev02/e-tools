@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { PageHeader } from '@interfaces/page-header.interface';
 import { Header } from '@shared/components/page-header/page-header.component';
-import { BidiModule } from "@angular/cdk/bidi";
+import { CategoryPercentagesComponent } from '../../components/category-percentages/category-percentages.component';
 
 @Component({
   selector: 'app-salary-distributor-page',
-  imports: [Header, BidiModule],
+  imports: [Header, CategoryPercentagesComponent],
   templateUrl: './salary-distributor-page.component.html',
   styleUrl: './salary-distributor-page.component.css',
 })
