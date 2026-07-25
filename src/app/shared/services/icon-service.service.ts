@@ -27,6 +27,7 @@ export class IconService {
     this.addIcons('warning', 'icons/warning.svg');
     this.addIcons('error', 'icons/error.svg');
     this.addIcons('restart', 'icons/restart.svg');
+    this.addIcons('money', 'icons/money.svg');
 
   }
 
