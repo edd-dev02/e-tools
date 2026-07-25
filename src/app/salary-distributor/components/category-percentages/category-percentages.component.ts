@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, computed, inject, output, effect } from '@angular/core';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { MatCardModule } from '@angular/material/card';
@@ -16,6 +16,7 @@ import { startWith } from 'rxjs';
 import { totalPercentageValidator } from '../../validators/total-percentage.validator';
 import { PercentageStatus } from '../../types/percentage-status.type';
 import { formInputs } from './../../helpers/form-inputs';
+import { EmitForm } from '@interfaces/emit-form.interface';
 
 @Component({
   selector: 'category-percentages',
@@ -34,9 +35,6 @@ import { formInputs } from './../../helpers/form-inputs';
 })
 export class CategoryPercentagesComponent {
 
-  private fb = inject(FormBuilder)
-  private readonly is = inject(IconService); // Obtener iconos registrados en el servicio
-
   // Porcentajes por defecto
   private DEFAULT_PERCENTAGES = {
     saving: 10,
@@ -47,6 +45,9 @@ export class CategoryPercentagesComponent {
 
   // Total de inputs del formulario
   public readonly formInputs = formInputs;
+
+  private fb = inject(NonNullableFormBuilder)
+  private readonly is = inject(IconService); // Obtener iconos registrados en el servicio
 
   // Declarar formulario reactivo
   public percentagesForm = this.fb.group(
@@ -63,7 +64,7 @@ export class CategoryPercentagesComponent {
   );
 
   // Convertir el formulario en un signal
-  private readonly formValue = toSignal(
+  public readonly formValuesSignal = toSignal(
     this.percentagesForm.valueChanges
       .pipe(
         startWith(this.percentagesForm.getRawValue())
@@ -73,10 +74,42 @@ export class CategoryPercentagesComponent {
     }
   );
 
+  // TODO: Emitir el objeto del formulario (si es válido y los valores de los porcentajes)
+
+  // Emitir cuando el formulario sea válido
+  public onValidForm = output<EmitForm>();
+
+  // Emitir el valor modelo de reactividad basado en signals
+  private readonly emitFormValues = effect(() => {
+
+    // effect() Reacciona cuando esta señal cambia los valores del formulario
+    // Sincroniza el estado del formulario con el componente padre.
+    this.formValuesSignal();
+
+    const isValid = this.percentagesForm.valid;
+    const formValues = this.percentagesForm.getRawValue();
+
+    this.onValidForm.emit({ isValid, formValues });
+  })
+
+  /* Emitir el valor de isValid con el modelo de reactividad anterior
+  ngOnInit(): void {
+
+    this.percentagesForm.statusChanges
+    .subscribe( 
+      ( ) => {
+        console.log(this.percentagesForm.valid);
+        this.onValidForm.emit( this.percentagesForm.valid );
+      }
+     );
+    
+  }
+  */
+
   // Obtener la suma de los porcentajes
   public readonly totalPercentages = computed(() => {
 
-    const values = this.formValue();
+    const values = this.formValuesSignal();
 
     return (
       (values.saving ?? 0) +
@@ -125,7 +158,7 @@ export class CategoryPercentagesComponent {
   public increasePercentage(inputName: CategoryName): void {
     const control = this.percentagesForm.controls[inputName];
 
-    const currentValue = control.value ?? 0;
+    const currentValue = control.value;
 
     if (currentValue < 100 && !this.hasReachedLimit()) {
       control.setValue(currentValue + 1);
@@ -136,7 +169,7 @@ export class CategoryPercentagesComponent {
   public decreasePercentage(inputName: CategoryName): void {
     const control = this.percentagesForm.controls[inputName];
 
-    const currentValue = control.value ?? 0;
+    const currentValue = control.value;
 
     if (currentValue > 0) {
       control.setValue(currentValue - 1);

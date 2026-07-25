@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { PageHeader } from '@interfaces/page-header.interface';
 import { Header } from '@shared/components/page-header/page-header.component';
 import { CategoryPercentagesComponent } from '../../components/category-percentages/category-percentages.component';
+import { EmitForm } from '@interfaces/emit-form.interface';
 
 @Component({
   selector: 'app-salary-distributor-page',
@@ -16,5 +17,13 @@ export default class SalaryDistributorPage {
     subtitle: 'Define como deseas distribuir tu salario en diferentes categorías.',
     iconStr: 'money_bag'
   })
+
+  public percentageFormStatus = signal<boolean>( true );
+
+  public updateSectionStatus({ isValid, formValues }: EmitForm) {
+
+    this.percentageFormStatus.set( isValid );
+
+  }
 
 }

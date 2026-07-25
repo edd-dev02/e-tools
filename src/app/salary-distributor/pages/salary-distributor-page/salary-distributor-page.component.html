@@ -1,7 +1,15 @@
 <section class="p-2">
     <shared-page-header [pageHeader]="headerData()"/>
 
-    <!--TODO: Card para definir los porcentajes-->
-    <category-percentages/>
+    <!-- Sección para definir porcentajes -->
+    <category-percentages (onValidForm)="updateSectionStatus($event)" />
+
+    <!-- Ingresar cantidades -->
+
+     @if ( percentageFormStatus() ) {
+        <section>
+            <span>Digite el salario</span>
+        </section>
+     }
     
 </section>
