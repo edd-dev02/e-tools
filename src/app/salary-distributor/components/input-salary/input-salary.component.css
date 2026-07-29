@@ -5,3 +5,66 @@
 mat-card-title {
     font-weight: 500;
 }
+
+.subtitle-input-container {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    border: 1px solid #d9dde3;
+    border-radius: .75rem;
+    background: #fff;
+
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+}
+
+.form-input {
+    height: 3rem;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+.form-input--salary {
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    padding-left: 0.25rem;
+    color: #646464;
+}
+
+.calculate-distribution {
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.calculate-distribution mat-icon{
+    margin-right: 0.5rem;
+}
+
+.tip-icon {
+    color: #2563eb;
+}
+
+.tip-box--header {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.tip-box--description {
+    font-size: 1rem;
+}

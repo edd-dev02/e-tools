@@ -24,7 +24,7 @@ export class InputSalaryComponent {
 
   public salaryForm = this.fb.group(
     {
-      salary: [1, [Validators.required, Validators.min(1), Validators.pattern(validQuantity)], ]
+      salary: [ , [Validators.required, Validators.min(1),], ]
     }
   );
 

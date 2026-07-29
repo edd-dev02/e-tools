@@ -1,25 +1,56 @@
-<mat-card appearance="outlined" class="card-section">
+<mat-card appearance="outlined" class="card-section px-4 py-4">
     <mat-card-header class="card-header flex justify-between items-center mb-2">
 
         <mat-card-title> 2. Ingresa tu salario</mat-card-title>
 
-
-
     </mat-card-header>
 
-    <form class="px-4 py-4" autocomplete="off">
+    <form class="md:flex md:flex-row md:justify-between md:items-end my-3 gap-2 mb-2.5" [formGroup]="salaryForm" autocomplete="off">
 
+        <section class="basis-1/2 mb-2.5 sm:mb-0">
 
+            <p class="mb-2 subtitle-input-container">Salario total (quincenal o mensual)</p>
+
+            <div class="input-container input-container--salary">
+                <mat-icon svgIcon="money" class="percent-icon" aria-hidden="false"
+                    aria-label="Example thumbs up SVG icon"></mat-icon>
+
+                <input formControlName="salary" class="form-input form-input--salary" type="number" placeholder="0.00">
+
+            </div>
+
+        </section>
+
+        <section class="tip-box basis-1/2 px-4 rounded bg-blue-100 border-1 border-blue-200">
+
+            <header class="flex flex-row items-center gap-2 my-3">
+                <mat-icon svgIcon="tip" class="tip-icon" aria-hidden="false"
+                    aria-label="Example thumbs up SVG icon"></mat-icon>
+                <h3 class="tip-box--header">Consejo</h3>
+            </header>
+
+            <p class="tip-box--description py-1.5">
+                Ingresa tu salario después de impuestos para una distribución más precisa
+            </p>
+            
+
+        </section>
 
     </form>
 
-    <section class="alert-section text-base">
-        <span>Ingresa el salario</span>
-    </section>
+    @if (salaryForm.valid) {
+
+            <div class="flex items-center">
+
+                <button
+                    class="calculate-distribution flex w-full items-center justify-center text-center bg-blue-600 py-2.5 rounded hover:bg-blue-500">
+                    <mat-icon svgIcon="finance" class="finance-icon" aria-hidden="false"
+                        aria-label="Example thumbs up SVG icon"></mat-icon>
+                    Calcular distribución
+                </button>
+
+            </div>
+
+            }
 
 </mat-card>
-
-<h3>Es válido el formulario</h3>
-<span>
-    {{ salaryForm.valid }}
-</span>

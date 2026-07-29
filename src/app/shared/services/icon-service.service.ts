@@ -28,6 +28,8 @@ export class IconService {
     this.addIcons('error', 'icons/error.svg');
     this.addIcons('restart', 'icons/restart.svg');
     this.addIcons('money', 'icons/money.svg');
+    this.addIcons('finance', 'icons/finance.svg');
+    this.addIcons('tip', 'icons/tip.svg');
 
   }
 
