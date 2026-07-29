@@ -4,12 +4,11 @@
     <!-- Sección para definir porcentajes -->
     <category-percentages (onValidForm)="updateSectionStatus($event)" />
 
-    <!-- Ingresar cantidades -->
-
-     @if ( percentageFormStatus() ) {
+    <!-- Ingresar cantidad de salario y realizar la distribución en base a porcentajes -->
+     @if ( percentageFormStatus() && percentagesValues !== null) {
         <section>
 
-            <input-salary/>
+            <input-salary [percentagesValues]="percentagesValues"/>
             
         </section>
      }

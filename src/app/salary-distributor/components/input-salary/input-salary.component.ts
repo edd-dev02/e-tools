@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { IconService } from '@shared/services/icon-service.service';
 import { validQuantity } from '../../validators/custom-validators';
+import { PercentagesForm } from '@interfaces/emit-form.interface';
 
 @Component({
   selector: 'input-salary',
@@ -21,6 +22,8 @@ export class InputSalaryComponent {
 
   private fb = inject(NonNullableFormBuilder);
   private is = inject(IconService);
+
+  public percentagesValues = input<PercentagesForm>()
 
   public salaryForm = this.fb.group(
     {
