@@ -3,7 +3,8 @@ import { Component, computed, OnInit, signal } from '@angular/core';
 import { PageHeader } from '@interfaces/page-header.interface';
 import { Header } from '@shared/components/page-header/page-header.component';
 import { CategoryPercentagesComponent } from '../../components/category-percentages/category-percentages.component';
-import { EmitForm, PercentagesForm } from '@interfaces/emit-form.interface';
+import { EmitForm } from '@interfaces/emit-form.interface';
+import { PercentagesForm } from '@interfaces/percentages-form.interface';
 import { InputSalaryComponent } from '../../components/input-salary/input-salary.component';
 
 @Component({

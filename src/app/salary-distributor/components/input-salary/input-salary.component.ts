@@ -4,8 +4,7 @@ import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angula
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { IconService } from '@shared/services/icon-service.service';
-import { validQuantity } from '../../validators/custom-validators';
-import { PercentagesForm } from '@interfaces/emit-form.interface';
+import { PercentagesForm } from '@interfaces/percentages-form.interface';
 
 @Component({
   selector: 'input-salary',
