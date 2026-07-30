@@ -43,6 +43,7 @@
             <div class="flex items-center">
 
                 <button
+                (click)="calcDistribution(salaryForm.controls['salary'].value!)"
                     class="calculate-distribution flex w-full items-center justify-center text-center bg-blue-600 py-2.5 rounded hover:bg-blue-500">
                     <mat-icon svgIcon="finance" class="finance-icon" aria-hidden="false"
                         aria-label="Example thumbs up SVG icon"></mat-icon>

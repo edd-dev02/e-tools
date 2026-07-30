@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { IconService } from '@shared/services/icon-service.service';
 import { PercentagesForm } from '@interfaces/percentages-form.interface';
+import { SalaryDistributorService } from '../../services/salary-distributor-service.service';
 
 @Component({
   selector: 'input-salary',
@@ -21,6 +22,7 @@ export class InputSalaryComponent {
 
   private fb = inject(NonNullableFormBuilder);
   private is = inject(IconService);
+  private salaryDistributorService = inject(SalaryDistributorService);
 
   public percentagesValues = input<PercentagesForm>()
 
@@ -29,5 +31,13 @@ export class InputSalaryComponent {
       salary: [ , [Validators.required, Validators.min(1),], ]
     }
   );
+
+  calcDistribution(salary: number) {
+
+    if( this.percentagesValues === null ) return;
+
+    this.salaryDistributorService.calculateDistribution(salary, this.percentagesValues()!);
+
+  }
 
 }
