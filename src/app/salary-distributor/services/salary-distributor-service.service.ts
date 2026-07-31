@@ -7,7 +7,6 @@ import { PercentagesForm } from '@interfaces/percentages-form.interface';
 })
 export class SalaryDistributorService {
 
-  //public calculateDistribution( percentagesValues: PercentagesForm ): DistributeCalculus[] {
   public calculateDistribution(salary: number, percentagesValues: PercentagesForm ): DistributeCalculus[] {
 
     let distribution: DistributeCalculus[] = [];

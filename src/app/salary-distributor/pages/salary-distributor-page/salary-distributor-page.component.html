@@ -8,7 +8,7 @@
      @if ( percentageFormStatus() && percentagesValues !== null) {
         <section>
 
-            <input-salary [percentagesValues]="percentagesValues"/>
+            <input-salary [percentagesValues]="percentagesValues" (onCalcDistribution)="catchCalc($event)"/>
             
         </section>
      }

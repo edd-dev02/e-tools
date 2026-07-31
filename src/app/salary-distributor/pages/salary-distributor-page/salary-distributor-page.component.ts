@@ -6,6 +6,7 @@ import { CategoryPercentagesComponent } from '../../components/category-percenta
 import { EmitForm } from '@interfaces/emit-form.interface';
 import { PercentagesForm } from '@interfaces/percentages-form.interface';
 import { InputSalaryComponent } from '../../components/input-salary/input-salary.component';
+import { DistributeCalculus } from '@interfaces/distribute-calculus.interface';
 
 @Component({
   selector: 'app-salary-distributor-page',
@@ -27,11 +28,18 @@ export default class SalaryDistributorPage {
   // Recibir y enviar los valores de los porcentajes
   public percentagesValues?: PercentagesForm;
 
+  // Recibir el cálculo
+  public calcDistribution = signal< DistributeCalculus[] | null>(null);
+
   public updateSectionStatus({ isValid, formValues }: EmitForm) {
 
     this.percentageFormStatus.set( isValid );
     this.percentagesValues = formValues;
 
   }
+
+  public catchCalc(calc: DistributeCalculus[]): void {
+    this.calcDistribution.set(calc);
+  } 
 
 }
