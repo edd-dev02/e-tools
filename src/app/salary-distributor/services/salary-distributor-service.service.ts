@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DistributeCalculus } from '@interfaces/distribute-calculus.interface';
 import { PercentagesForm } from '@interfaces/percentages-form.interface';
+import { CategoryName } from '../types/form.type';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class SalaryDistributorService {
 
     let distribution: DistributeCalculus[] = [];
 
-    for( const [category, amount] of Object.entries(percentagesValues) ) {
+    for( const [category, amount] of Object.entries(percentagesValues) as [CategoryName, number][] ) {
 
       distribution.push( { category, total:( (salary * amount) / 100 ) } );
 
