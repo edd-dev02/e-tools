@@ -1,0 +1,46 @@
+<mat-card appearance="outlined" class="card-section px-4 py-4 mt-5">
+
+    <mat-card-header class="card-header flex justify-between items-center mb-2">
+
+        <mat-card-title>
+            3. Tu distribución
+        </mat-card-title>
+
+    </mat-card-header>
+
+    <section class="grid mt-2">
+
+        @for(item of gridData(); track item.inputName) {
+
+        <div class="distribution-card flex flex-col md:flex-row items-center rounded p-2" [class]="item.iconContainer">
+
+            <div class="md:px-3">
+
+                <mat-icon [svgIcon]="item.icon" [class]="item.iconClass">
+                </mat-icon>
+
+            </div>
+
+            <section class="distribution-element flex flex-col">
+
+                <span class="text-gray-800">
+                    {{ item.inputLabel }}
+                </span>
+
+                <span class="font-semibold" [class]="item.iconClass">
+                    {{ item.total | currency }}
+                </span>
+
+                <span class="text-sm text-gray-500">
+                    {{ item.percentage }}%
+                </span>
+
+            </section>
+
+        </div>
+
+        }
+
+    </section>
+
+</mat-card>

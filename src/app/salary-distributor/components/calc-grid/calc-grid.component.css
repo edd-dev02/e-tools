@@ -1,0 +1,66 @@
+.grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+}
+
+.icon-container--savings {
+    background-color: rgba(34, 197, 94, 0.15);
+}
+
+.icon-container--bills {
+    background-color: rgba(227, 16, 5, 0.15);
+}
+
+.icon-container--leisure {
+    background-color: #b618ff26;
+}
+
+.icon-container--efund {
+    background-color: #4385ff26;
+}
+
+.savings-icon {
+    color: #22c55e;
+}
+
+.bills-icon {
+    color: #ff2222;
+}
+
+.leisure-icon {
+    color: #bf11ff;
+}
+
+.efund-icon {
+    color: #0252ff;
+}
+
+
+mat-icon {
+
+    width: 32px;
+    height: 32px;
+    font-size:32px;
+
+}
+
+.distribution-element span {
+    margin: 0.2rem 0;
+}
+
+.distribution-element span:nth-child(1) {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.distribution-element span:nth-child(2) {
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px){
+
+    .distribution-element span:nth-child(2) {
+    font-size: 1.2rem;
+}
+    
+}

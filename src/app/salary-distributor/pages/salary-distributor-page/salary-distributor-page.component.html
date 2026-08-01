@@ -12,5 +12,16 @@
             
         </section>
      }
+
+     <!-- Mostrar la distribución del cálculo -->
+     @if(calcDistribution()) {
+
+        <section>
+
+         <calc-grid [distribution]="calcDistribution()!" [categorysPercentage]="percentagesValues"/>
+            
+        </section>
+        
+     }
     
 </section>

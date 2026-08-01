@@ -7,10 +7,11 @@ import { EmitForm } from '@interfaces/emit-form.interface';
 import { PercentagesForm } from '@interfaces/percentages-form.interface';
 import { InputSalaryComponent } from '../../components/input-salary/input-salary.component';
 import { DistributeCalculus } from '@interfaces/distribute-calculus.interface';
+import { CalcGridComponent } from '../../components/calc-grid/calc-grid.component';
 
 @Component({
   selector: 'app-salary-distributor-page',
-  imports: [CommonModule, Header, CategoryPercentagesComponent, InputSalaryComponent],
+  imports: [CommonModule, Header, CategoryPercentagesComponent, InputSalaryComponent, CalcGridComponent],
   templateUrl: './salary-distributor-page.component.html',
   styleUrl: './salary-distributor-page.component.css',
 })
