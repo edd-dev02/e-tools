@@ -4,6 +4,12 @@
 Nota: Recuerda añadir el normalize.css
 */
 
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
 .container {
     width: 95%;
     max-width: 1200px;
