@@ -1,58 +1,55 @@
-# ETools
+# E-Tools
+<img width="768" height="1198" alt="WhatsApp Image 2026-08-02 at 18 25 38" src="https://github.com/user-attachments/assets/6b333916-3c0e-453a-8083-41462dae76f0" />
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+🔗 Demo (Angular): https://angular-e-tools.netlify.app/e-tools/salary-distributor
 
-## Development server
+## 💡 ¿De qué trata la app?
 
-To start a local development server, run:
+E-Tools es una colección de herramientas digitales enfocadas en resolver necesidades cotidianas mediante aplicaciones web simples, intuitivas y funcionales.
 
-```bash
-ng serve
-```
+Actualmente cuenta con el módulo **Salary Distributor**, una herramienta para organizar y distribuir ingresos mediante porcentajes personalizados, permitiendo visualizar cómo se asigna el salario entre diferentes categorías financieras.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Funcionalidades implementadas:
 
-## Code scaffolding
+💰 Distribución de salario basada en porcentajes personalizados  
+📊 Cálculo automático de montos por categoría  
+📝 Formularios reactivos con validaciones dinámicas  
+⚡ Manejo de estados utilizando Angular Signals  
+🔄 Comunicación entre componentes mediante Outputs e Inputs  
+🎨 Interfaz moderna utilizando Angular Material + Tailwind CSS  
+🧩 Arquitectura modular basada en componentes reutilizables  
+🛣️ Navegación mediante Angular Router  
+🚀 Deploy en producción con Netlify  
+🔧 Configuración SPA para evitar errores al recargar rutas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+### 🛠️ Tecnologías utilizadas
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+    Angular 21
+    TypeScript
+    Angular Material
+    Tailwind CSS
+    Angular Signals
+    Reactive Forms (@angular/forms)
+    RxJS
+    Netlify
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+### 🧠 Aprendizajes clave
 
-To build the project run:
+    Implementación de arquitectura modular en Angular
+    Uso de Signals para manejo reactivo del estado
+    Construcción de formularios reactivos con validaciones personalizadas
+    Comunicación eficiente entre componentes padre-hijo
+    Diseño de interfaces responsivas con Tailwind CSS
+    Organización de lógica de negocio mediante servicios
+    Configuración y despliegue de aplicaciones SPA en Netlify
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
