@@ -1,7 +1,7 @@
 :host {
   display: flex;
-  height: 100vh;      /* Mejor que min-height */
-  overflow: hidden;   /* Evita que el host genere scroll */
+  height: 100dvh;
+  overflow: hidden;
   background: var(--mat-sys-surface-container-low);
 }
 
@@ -11,18 +11,21 @@
   flex-direction: column;
 
   min-width: 0;
-  min-height: 0;      /* Muy importante en layouts flex */
+  min-height: 0;
 
   overflow: hidden;
 }
 
 .page-content {
   flex: 1;
+  height: 0;
 
-  min-height: 0;      /* Permite que el overflow funcione */
+  min-height: 0;
 
   overflow-y: auto;
   overflow-x: hidden;
+
+  scroll-behavior: smooth;
 
   padding: 1.5rem;
 }

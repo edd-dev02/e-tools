@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, input } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, inject, input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -19,7 +19,20 @@ import { formInputs } from '../../helpers/form-inputs';
   templateUrl: './calc-grid.component.html',
   styleUrl: './calc-grid.component.css',
 })
-export class CalcGridComponent {
+export class CalcGridComponent implements AfterViewInit {
+
+  private elementRef = inject(ElementRef);
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.elementRef.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+
+
 
   private is = inject(IconService);
 
