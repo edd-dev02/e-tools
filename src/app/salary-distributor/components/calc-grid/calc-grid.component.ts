@@ -32,8 +32,6 @@ export class CalcGridComponent implements AfterViewInit {
     });
   }
 
-
-
   private is = inject(IconService);
 
   // Metadatos de cada categoría

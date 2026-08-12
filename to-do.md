@@ -16,8 +16,7 @@ de manera automática.
 Post-deploy:
 
 Importancia muy alta:
-    - Ajustar altura de contenedor de la app para que considere elementos del navegador (barra) y navegacion de dispositivos móviles
-    - Agregar animación de scroll hacia los componentes en su evento OnInit
+
     - Destruir componente de distribución cuando el componente de input se destruye (OnDestroy en cadena)
 
 Importancia alta:

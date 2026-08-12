@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, input, output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, input, output } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,11 +19,21 @@ import { DistributeCalculus } from '@interfaces/distribute-calculus.interface';
   templateUrl: './input-salary.component.html',
   styleUrl: './input-salary.component.css',
 })
-export class InputSalaryComponent {
+export class InputSalaryComponent implements AfterViewInit {
 
   private fb = inject(NonNullableFormBuilder);
   private is = inject(IconService);
   private salaryDistributorService = inject(SalaryDistributorService);
+  private elementRef = inject(ElementRef);
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.elementRef.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
 
   public percentagesValues = input<PercentagesForm>()
 
