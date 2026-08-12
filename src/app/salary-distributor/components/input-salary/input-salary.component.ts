@@ -51,6 +51,8 @@ export class InputSalaryComponent implements AfterViewInit {
 
     this.onCalcDistribution.emit(this.salaryDistributorService.calculateDistribution(salary, this.percentagesValues()!));
 
+    this.salaryDistributorService.showDistributionFlag.update(value => true);
+
   }
 
 }

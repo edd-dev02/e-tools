@@ -1,5 +1,6 @@
+import { SalaryDistributorService } from './../../services/salary-distributor-service.service';
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, computed, ElementRef, inject, input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -19,8 +20,9 @@ import { formInputs } from '../../helpers/form-inputs';
   templateUrl: './calc-grid.component.html',
   styleUrl: './calc-grid.component.css',
 })
-export class CalcGridComponent implements AfterViewInit {
-
+export class CalcGridComponent implements AfterViewInit, OnDestroy {
+  
+  private salaryDistributorService = inject(SalaryDistributorService);
   private elementRef = inject(ElementRef);
 
   ngAfterViewInit(): void {
@@ -32,7 +34,12 @@ export class CalcGridComponent implements AfterViewInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.salaryDistributorService.showDistributionFlag.update( value => false );
+  }
+
   private is = inject(IconService);
+
 
   // Metadatos de cada categoría
   private dataInputs = formInputs;

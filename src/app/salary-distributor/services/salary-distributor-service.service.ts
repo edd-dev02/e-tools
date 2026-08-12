@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { DistributeCalculus } from '@interfaces/distribute-calculus.interface';
 import { PercentagesForm } from '@interfaces/percentages-form.interface';
 import { CategoryName } from '../types/form.type';
@@ -7,6 +7,8 @@ import { CategoryName } from '../types/form.type';
   providedIn: 'root',
 })
 export class SalaryDistributorService {
+
+  public showDistributionFlag = signal<boolean>(false);
 
   public calculateDistribution(salary: number, percentagesValues: PercentagesForm ): DistributeCalculus[] {
 

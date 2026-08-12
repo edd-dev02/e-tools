@@ -17,6 +17,7 @@ import { totalPercentageValidator } from '../../validators/total-percentage.vali
 import { PercentageStatus } from '../../types/percentage-status.type';
 import { formInputs } from './../../helpers/form-inputs';
 import { EmitForm } from '@interfaces/emit-form.interface';
+import { SalaryDistributorService } from '../../services/salary-distributor-service.service';
 
 @Component({
   selector: 'category-percentages',
@@ -42,6 +43,8 @@ export class CategoryPercentagesComponent {
     leisure: 15,
     eFund: 5,
   }
+
+  private salaryDistributorService = inject(SalaryDistributorService);
 
   // Total de inputs del formulario
   public readonly formInputs = formInputs;
@@ -90,6 +93,12 @@ export class CategoryPercentagesComponent {
     const formValues = this.percentagesForm.getRawValue();
 
     this.onValidForm.emit({ isValid, formValues });
+
+    if(!isValid) {
+
+      this.salaryDistributorService.showDistributionFlag.update( value => false );
+
+    }
   })
 
   /* Emitir el valor de isValid con el modelo de reactividad anterior
