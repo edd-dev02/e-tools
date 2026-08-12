@@ -15,10 +15,6 @@ de manera automática.
 
 Post-deploy:
 
-Importancia muy alta:
-
-    - Destruir componente de distribución cuando el componente de input se destruye (OnDestroy en cadena)
-
 Importancia alta:
 
     - Investigar por que las signals tienen un comportamiento diferente en ciertos dispositivos móvil android
