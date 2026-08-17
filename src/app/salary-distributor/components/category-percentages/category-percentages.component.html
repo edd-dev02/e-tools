@@ -1,4 +1,4 @@
-<mat-card appearance="outlined" class="card-section">
+<mat-card appearance="outlined" class="card-section px-4">
     <mat-card-header class="card-header flex justify-between items-center mb-2">
 
         <mat-card-title class="font-semibold"> 1. Define los porcentajes</mat-card-title>
@@ -6,9 +6,7 @@
         <div class="flex items-center gap-2">
 
             <button class="resetFormBtn" matIconButton aria-label="Example icon button with a vertical three dot icon"
-                matTooltip="Reiniciar porcentajes del formulario"
-                (click)="resetForm()"
-            >
+                matTooltip="Reiniciar porcentajes del formulario" (click)="resetForm()">
                 <mat-icon svgIcon="restart"></mat-icon>
             </button>
 
@@ -21,11 +19,23 @@
             </span>
 
         </div>
-
-
     </mat-card-header>
 
-    <form class="px-4 py-4" [formGroup]="percentagesForm" autocomplete="off">
+    <section class="tip-box px-2 rounded bg-blue-100 border-1 border-blue-200">
+
+        <header class="flex flex-row items-center justify-center gap-2 py-2">
+            <mat-icon svgIcon="tip" class="tip-icon animate-pulse" aria-hidden="false"
+                    aria-label="Example thumbs up SVG icon"></mat-icon>
+            <h3 class="tip-box--header">¿Necesitas reasignar los porcentajes?</h3>
+        </header>
+
+        <p class="tip-box--description py-1.5 md:text-center">
+            Restale porcentaje a una categoría y el restante sumalo a otra
+        </p>
+
+    </section>
+
+    <form [formGroup]="percentagesForm" autocomplete="off">
 
         @for (input of formInputs; track input.inputName) {
 
