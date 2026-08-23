@@ -26,13 +26,25 @@ export class CalcGridComponent implements AfterViewInit, OnDestroy {
   private elementRef = inject(ElementRef);
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.elementRef.nativeElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+  setTimeout(() => {
+    const container = document.querySelector('.page-content');
+
+    if (!container) return;
+
+    const element = this.elementRef.nativeElement;
+
+    const containerTop = container.getBoundingClientRect().top;
+    const elementTop = element.getBoundingClientRect().top;
+
+    const scrollPosition =
+      container.scrollTop + (elementTop - containerTop);
+
+    container.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth'
     });
-  }
+  });
+}
 
   ngOnDestroy(): void {
     this.salaryDistributorService.showDistributionFlag.update( value => false );
