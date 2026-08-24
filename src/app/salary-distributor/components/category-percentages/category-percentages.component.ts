@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, output, effect } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, output, effect } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -33,6 +33,7 @@ import { SalaryDistributorService } from '../../services/salary-distributor-serv
   ],
   templateUrl: './category-percentages.component.html',
   styleUrl: './category-percentages.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryPercentagesComponent {
 
