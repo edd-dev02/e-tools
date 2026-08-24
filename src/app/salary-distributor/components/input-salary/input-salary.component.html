@@ -5,7 +5,8 @@
 
     </mat-card-header>
 
-    <form class="md:flex md:flex-row md:justify-between md:items-end my-3 gap-2 mb-2.5" [formGroup]="salaryForm" autocomplete="off">
+    <form class="md:flex md:flex-row md:justify-between md:items-end my-3 gap-2 mb-2.5" [formGroup]="salaryForm"
+        autocomplete="off">
 
         <section class="basis-1/2 mb-2.5 sm:mb-0">
 
@@ -32,26 +33,17 @@
             <p class="tip-box--description py-1.5">
                 Ingresa tu salario después de impuestos para una distribución más precisa
             </p>
-            
+
 
         </section>
 
     </form>
 
-    @if (salaryForm.valid) {
-
-            <div class="flex items-center">
-
-                <button
-                (click)="calcDistribution(salaryForm.controls['salary'].value!)"
-                    class="calculate-distribution flex w-full items-center justify-center text-center bg-blue-600 py-2.5 rounded hover:bg-blue-500">
-                    <mat-icon svgIcon="finance" class="finance-icon" aria-hidden="false"
-                        aria-label="Example thumbs up SVG icon"></mat-icon>
-                    Calcular distribución
-                </button>
-
-            </div>
-
-            }
+    <button [disabled]="!salaryForm.valid" [class.disabled-button]="!salaryForm.valid" (click)="calcDistribution(salaryForm.controls['salary'].value!)"
+        class="calculate-distribution flex w-full items-center justify-center text-center bg-blue-600 py-2.5 rounded hover:not-disabled:bg-blue-500">
+        <mat-icon svgIcon="finance" class="finance-icon" aria-hidden="false"
+            aria-label="Example thumbs up SVG icon"></mat-icon>
+        Calcular distribución
+    </button>
 
 </mat-card>
