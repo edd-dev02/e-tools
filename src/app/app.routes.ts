@@ -5,6 +5,16 @@ export const routes: Routes = [
         path: 'e-tools',
         children: [
             {
+                path: 'home',
+                title: 'Inicio',
+                data: {
+                    icon: 'home',
+                    classIcon: 'home-icon',
+                    ariaLabelIcon: 'Icono de opción página inicial'
+                },
+                loadComponent: () => import('./home/pages/home-page/home-page.component').then(c => c.default)
+            },
+            {
                 path: 'salary-distributor',
                 title: 'Distribuir salario',
                 data: {
@@ -17,17 +27,17 @@ export const routes: Routes = [
             },
             {
                 path: '',
-                redirectTo: 'salary-distributor',
+                redirectTo: 'home',
                 pathMatch: 'full'
             },
             {
                 path: '**',
-                redirectTo: 'salary-distributor',
+                redirectTo: 'home',
             }
         ]
     },
     {
         path: '**',
-        redirectTo: '/e-tools/salary-distributor'
+        redirectTo: '/e-tools/home'
     }
 ];

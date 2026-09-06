@@ -30,6 +30,10 @@ export class IconService {
     this.addIcons('money', 'icons/money.svg');
     this.addIcons('finance', 'icons/finance.svg');
     this.addIcons('tip', 'icons/tip.svg');
+    this.addIcons('tools', 'icons/tools.svg');
+    this.addIcons('home', 'icons/home.svg');
+    this.addIcons('arrow', 'icons/arrow.svg');
+    this.addIcons('salary-distributor', 'icons/salary-distributor.svg');
 
   }
 
