@@ -46,4 +46,10 @@ export class SidemenuComponent implements OnInit {
       this.sidebarService.collapsed.set(false);
     }
   }
+
+  public navigateMobile(): void {
+  if (this.sidebarService.isMobile()) {
+    this.sidebarService.closeMobile();
+  }
+}
 }

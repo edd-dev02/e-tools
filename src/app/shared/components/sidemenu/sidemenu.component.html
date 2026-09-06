@@ -42,9 +42,10 @@
     @for(item of menuItems; track item.path) {
 
     <button 
-      class="nav-item" 
+      class="nav-item mb-1" 
       [routerLink]="item.fullPath"
       routerLinkActive="active"
+      (click)="navigateMobile()"
     >
       
       <mat-icon [class]="item!.data!['classIcon']" aria-hidden="false" [aria-label]="item!.data!['ariaLabelIcon']"
