@@ -13,6 +13,9 @@ Generales:
 - Para cada módulo, obtener los metadatos de la ruta en cuestión para pasarle información al componente del Header 
 de manera automática.
 
+Home Page:
+- Al integrar un módulo nuevo, crear un componente reutilizable para cada Card.
+
 Post-deploy:
 
 Importancia alta:
